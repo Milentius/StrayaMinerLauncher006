@@ -1,0 +1,42 @@
+﻿<Page x:Class="StrayaMinerLauncher006.Pages.InformationHelp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StrayaMinerLauncher006.Pages"
+      mc:Ignorable="d"
+      Title="InformationHelp" Width="697" Height="729">
+
+    <Grid Background="#FF3C3C3C">
+        <DockPanel LastChildFill="False">
+            <DockPanel LastChildFill="False" Width="220">
+                <StackPanel Width="220" Background="#FF232323">
+                    <Label Content="How To Start" FontWeight="Bold"/>
+                    <Button Content="How To Setup Mining" Width="210" Margin="0,10,0,0"/>
+                    <Button Content="Settings - Detailed Information" Width="210" Margin="0,10,0,0"/>
+                    <Button Content="Button" Width="210" Margin="0,10,0,0"/>
+                    <Button Content="Button" Width="210" Margin="0,10,0,0"/>
+                    <Button Content="Button" Width="210" Margin="0,10,0,0"/>
+                    <Label Content="More Information" FontWeight="Bold" Margin="0,45,0,0"/>
+                    <Button Content="How Mining Works" Width="210" Margin="0,10,0,0"/>
+                    <Button Content="What Is Blockchain" Width="210" Margin="0,10,0,0"/>
+                    <Button Content="Button" Width="210" Margin="0,10,0,0"/>
+                    <Button Content="Button" Width="210" Margin="0,10,0,0"/>
+                    <Label Content="More Information" FontWeight="Bold" Margin="0,45,0,0"/>
+                </StackPanel>
+            </DockPanel>
+            <DockPanel LastChildFill="False" Width="477">
+                <RichTextBox x:Name="richTextBox1" Width="450" Height="709" Margin="14,0,0,0">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="Step 1, open the strayacoin wallet, the wallet is the 'strayacoin-qt.exe' file, we need to sync this before we start mining"/>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run Text="Step 2, we need to set the path to the wallet so we can start the miners, open settings and browse to th"/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrayaMinerLauncher006", "StrayaMinerLauncher006\StrayaMinerLauncher006.csproj", "{97C55A1D-62D0-42CD-9B69-EC2C2F40981D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97C55A1D-62D0-42CD-9B69-EC2C2F40981D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C55A1D-62D0-42CD-9B69-EC2C2F40981D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C55A1D-62D0-42CD-9B69-EC2C2F40981D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C55A1D-62D0-42CD-9B69-EC2C2F40981D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4DB56BE-F3EC-4BF3-BE82-22B9DD21CDC8}
+	EndGlobalSection
+EndGlobal

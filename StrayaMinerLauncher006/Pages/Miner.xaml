@@ -1,0 +1,407 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StrayaMinerLauncher006.Pages"
+      xmlns:oxy="http://oxyplot.org/wpf" x:Class="StrayaMinerLauncher006.Pages.Miner"
+      mc:Ignorable="d"
+      Title="Miner" Width="1458" Height="750" Unloaded="Page_Unloaded">
+
+    <Grid>
+        <DockPanel LastChildFill="False" Margin="349,352,0,0" HorizontalAlignment="Left" Width="697">
+            <oxy:PlotView Background="#FF232323" Foreground="#FFC8C8C8" Width="697" Height="369" DockPanel.Dock="Bottom" BorderBrush="#FFC8C8C8" BorderThickness="1,1,1,1"/>
+            <WrapPanel Width="697">
+                <Label Width="457" Content="Charts"/>
+                <Button Content="Hasrate" BorderBrush="#FFC8C8C8"/>
+                <Button Content="Difficulty" BorderBrush="#FFC8C8C8"/>
+                <Button Content="Payments" BorderBrush="#FFC8C8C8"/>
+                <StackPanel Width="30">
+                    <Button Content="⬆" Width="30" Height="15" Padding="1,-2,1,1" BorderBrush="#FFC8C8C8"/>
+                    <Button Content="⬇" Width="30" Height="15" Padding="1,-1,1,1" BorderBrush="#FFC8C8C8"/>
+                </StackPanel>
+            </WrapPanel>
+        </DockPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Left" Width="349">
+            <DockPanel Height="900" LastChildFill="False" Width="349">
+                <StackPanel Width="349" Orientation="Horizontal" Height="50" DockPanel.Dock="Top">
+                    <Label Content="Device Information" Width="349" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
+                </StackPanel>
+                <DockPanel LastChildFill="False" Width="349" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Height="50" Width="174">
+                        <Label Content="CPU Name" Width="174.5" Height="25"/>
+                        <Label Content="Number of Cores" Width="174" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Width="174.9" Height="50">
+                        <Label x:Name="lblCpuName" Content="--" Width="175" Height="25"/>
+                        <Label x:Name="lblCpuCoresNum" Content="0" Width="175" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50" Width="349">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Number of Threads" Width="174.5" Height="25"/>
+                        <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,5,0,5" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Width="175" Height="50">
+                        <Label x:Name="lblCpuThreadsNum" Content="0" Width="174.5" Height="25"/>
+                        <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,5,0,5" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Temperature - CPU Package" Width="174.5" Height="25"/>
+                        <Label Content="Temperature - Core #1" Width="174.5" HorizontalAlignment="Right" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblTempPackage" Content="Current - 0  |  Max - 0" Width="174.5" Height="25"/>
+                        <Label x:Name="lblTempCore1" Content="Current - 0  |  Max - 0" Width="174.5" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Temperature - Core #2" Width="174.5" Height="25"/>
+                        <Label Content="Temperature - Core #3" Width="174.5" HorizontalAlignment="Right" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblTempCore2" Content="Current - 0  |  Max - 0" Width="174.5" Height="25"/>
+                        <Label x:Name="lblTempCore3" Content="Current - 0  |  Max - 0" Width="174.5" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Temperature - Core #4" Width="174.5" Height="25"/>
+                        <Label Content="_____________________________________________________________________" Width="174.5" HorizontalAlignment="Right" Padding="0,5,0,5" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblTempCore4" Content="Current - 0  |  Max - 0" Width="174.5" Height="25"/>
+                        <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,5,0,5" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Load - Total" Width="174.5" Height="25"/>
+                        <Label Content="Load - C1 Thread #1" Width="174.5" HorizontalAlignment="Right" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblLoadTotal" Content="Current - 0  |  Max - 0" Width="174.5" Height="25"/>
+                        <Label x:Name="lblLoadC1T1" Content="Current - 0  |  Max - 0" Width="174.5" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Load - C1 Thread #2" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+                        <Label Content="Load - C2 Thread #1" Width="174.5" HorizontalAlignment="Right" Background="#FF232323" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblLoadC1T2" Content="Current - 0  |  Max - 0" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+                        <Label x:Name="lblLoadC2T1" Content="Current - 0  |  Max - 0" Width="174.5" Background="#FF232323" Height="25"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Load - C2 Thread #2" Width="174.5" Height="25"/>
+                        <Label Content="Load - C3 Thread #1" Width="174.5" HorizontalAlignment="Right" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblLoadC2T2" Content="Current - 0  |  Max - 0" Width="174.5" Height="25"/>
+                        <Label x:Name="lblLoadC3T1" Content="Current - 0  |  Max - 0" Width="174.5" Background="#FF1A1A1A" Height="25"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Load - C3 Thread #2" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+                        <Label Content="Load - C4 Thread #1" Width="174.5" HorizontalAlignment="Right" Background="#FF232323" Height="25"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblLoadC3T2" Content="Current - 0  |  Max - 0" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+                        <Label x:Name="lblLoadC4T1" Content="Current - 0  |  Max - 0" Width="174.5" Background="#FF232323" Height="25"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Load - C4 Thread #2" Width="174.5" Height="25"/>
+                        <Label Content="_____________________________________________________________________" Width="174.5" HorizontalAlignment="Right" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblLoadC4T2" Content="Current - 0  |  Max - 0" Width="174.5" Height="25"/>
+                        <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Clock - Core #1" Width="174.5" Height="25"/>
+                        <Label Content="Clock - Core #2" Width="174.5" HorizontalAlignment="Right" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblClockCore1" Content="0 MHz" Width="174.5" Height="25"/>
+                        <Label x:Name="lblClockCore2" Content="0 MHz" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Clock - Core #3" Width="174.5" Height="25"/>
+                        <Label Content="Clock - Core #4" Width="174.5" HorizontalAlignment="Right" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblClockCore3" Content="0 MHz" Width="174.5" Height="25"/>
+                        <Label x:Name="lblClockCore4" Content="0 MHz" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,0,0,5" Height="25"/>
+                        <Label Content="Power - CPU Package" Width="174.5" HorizontalAlignment="Right" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,0,0,5" Height="25"/>
+                        <Label x:Name="lblPowerCpuPackage" Content="0" Width="174.5" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Power - CPU Cores" Width="174.5" Height="25"/>
+                        <Label Content="Power - CPU Memory" Width="174.5" HorizontalAlignment="Right" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblPowerCpuCores" Content="0" Width="174.5" Height="25"/>
+                        <Label x:Name="lblPowerMemory" Content="0" Width="174.5" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="_____________________________________________________________________" Width="174.5" Height="25" Padding="0,5,0,5"/>
+                        <Label Content="Voltage - CPU Package" Width="174.5" HorizontalAlignment="Right" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="_____________________________________________________________________" Width="174.5" Height="25" Padding="0,5,0,5"/>
+                        <Label x:Name="lblVoltageCpuPackage" Content="0" Width="174.5" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Voltage - Core 1" Width="174.5" Height="25"/>
+                        <Label Content="Voltage - Core 2" Width="174.5" HorizontalAlignment="Right" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblVoltageCore1" Content="0" Width="174.5" Height="25"/>
+                        <Label x:Name="lblVoltageCore2" Content="0" Width="174.5" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="False" DockPanel.Dock="Top" Height="50">
+                    <StackPanel Width="174.5" Height="50">
+                        <Label Content="Voltage - Core 3" Width="174.5" Height="25"/>
+                        <Label Content="Voltage - Core 4" Width="174.5" HorizontalAlignment="Right" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                    <StackPanel Width="174.5" Height="50">
+                        <Label x:Name="lblVoltageCore3" Content="0" Width="174.5" Height="25"/>
+                        <Label x:Name="lblVoltageCore4" Content="0" Width="174.5" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                    </StackPanel>
+                </DockPanel>
+            </DockPanel>
+        </ScrollViewer>
+        <DockPanel HorizontalAlignment="Left" LastChildFill="False" Width="349" Margin="349,0,0,0" Height="352" VerticalAlignment="Top">
+            <StackPanel DockPanel.Dock="Top" Height="50">
+                <Label Content="Mining Information" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontWeight="Bold" Height="50" Width="349"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Network Status" Width="175" Height="25" Background="#FF1A1A1A"/>
+                <Label x:Name="lblNetworkStatus" Content="Offline" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Network Difficulty" Width="174.5" Background="#FF232323" Height="25"/>
+                <Label x:Name="lblNetworkDifficulty" Content="0" Width="174.5" Background="#FF232323" Height="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Network Hashrate" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+                <Label x:Name="lblNetworkHashrate" Content="0 H/s" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Network Blocks Mined" Width="174" Background="#FF232323" Height="25"/>
+                <Label x:Name="lblNetworkBlocksMined" Content="0" Width="174.5" Background="#FF232323" Height="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Connected Clients: Incomming" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+                <Label x:Name="lblConnectedClientsIn" Content="0" Width="174.5" Height="25" Background="#FF1A1A1A"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25" Width="349">
+                <Label Content="Connected Clients: Outgoing" Width="174.5" Background="#FF232323" Height="25"/>
+                <Label x:Name="lblConnectedClientsOut" Content="0" Width="174.5" Background="#FF232323" Height="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="_____________________________________________________________________" Width="174" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+                <Label Content="_____________________________________________________________________" Width="174" Padding="0,5,0,5" Height="25" Background="#FF1A1A1A"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="User Blocks Mined (total)" Width="174.5" Background="#FF232323" Height="25"/>
+                <Label x:Name="lblUserBlocksMinedTotal" Content="0" Width="174.5" Background="#FF232323" Height="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="User Blocks Mined (session)" Width="174.5" Background="#FF1A1A1A" Height="25"/>
+                <Label x:Name="lblUserBlocksMinedSession" Content="0" Width="174.5" Background="#FF1A1A1A" Height="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Mining Time (total)" Width="174.5" Background="#FF232323" Height="25"/>
+                <Label Content="00:00" Width="174.5" Background="#FF232323" Height="25"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Mining Time (session)" Width="174.5" Background="#FF1A1A1A"/>
+                <Label Content="00:00" Width="174.5" Background="#FF1A1A1A"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,4,0,5" Background="#FF232323"/>
+                <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,4,0,5" Background="#FF232323"/>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel LastChildFill="False" Margin="698,1,0,0" Height="346" VerticalAlignment="Top" HorizontalAlignment="Left" Width="348">
+            <StackPanel DockPanel.Dock="Top" Height="50">
+                <Label Content="Wallet Information" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontWeight="Bold" Height="50" Width="349"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Wallet Balance (total)" Width="174.5" Height="25"/>
+                <Label x:Name="lblWalletBalance" Content="0 NAH" Width="174.5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="uncornfirmed Balance (traded)" Width="174.5" Background="#FF1A1A1A"/>
+                <Label x:Name="lblWalletUnconfirmed" Content="0 NAH" Width="174.5" Background="#FF1A1A1A"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Immature Balance (mined)" Width="174.5"/>
+                <Label x:Name="lblWalletImmature" Content="0 NAH" Width="174.5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Transaction Count (total)" Width="174.5" Background="#FF1A1A1A"/>
+                <Label x:Name="lblTransactionCount" Content="0 Transactions" Width="174.5" Background="#FF1A1A1A"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Last Payment Type" Width="174.5"/>
+                <Label x:Name="lblLastPaymentType" Content="Unknown" Width="174.5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Last Payment Amount" Width="174.5" Background="#FF1A1A1A"/>
+                <Label x:Name="lblLastPaymentAmount" Content="Unknown" Width="174.5" Background="#FF1A1A1A"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Top" Height="49">
+                <Label Content="Market Information" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontWeight="Bold" Height="50" Width="349"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Trade Ogre Price" Width="174.5" Background="#FF232323"/>
+                <Label x:Name="lblLastPaymentAmount1" Content="Unknown" Width="174.5" Background="#FF232323"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="AltMarkets Price" Width="174.5" Background="#FF1A1A1A"/>
+                <Label x:Name="lblLastPaymentAmount2" Content="Unknown" Width="174.5" Background="#FF1A1A1A"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="Unnamed Price" Width="174.5" Background="#FF232323"/>
+                <Label x:Name="lblLastPaymentAmount3" Content="Unknown" Width="174.5" Background="#FF232323"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="25">
+                <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,4,0,5" Background="#FF232323"/>
+                <Label Content="_____________________________________________________________________" Width="174.5" Padding="0,4,0,5" Background="#FF232323"/>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="750" LastChildFill="False" VerticalAlignment="Center" Width="412" Margin="1046,0,0,0">
+            <TabControl Background="#FF232323" DockPanel.Dock="Right" Width="412">
+                <TabItem Header="Normal Output" BorderBrush="#FFC8C8C8" Height="30" Width="120" FontSize="14">
+                    <TabItem.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFF0F0F0"/>
+                            <GradientStop Color="#FFC8C8C8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TabItem.Background>
+                    <Grid Background="#FF232323" Height="711" VerticalAlignment="Center">
+                        <RichTextBox x:Name="rtbMinerOutput1Normal" Margin="0,30,0,533" Height="147.75">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text=""/>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Label Content="Miner 1 Normal Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="30"/>
+                        <RichTextBox x:Name="rtbMinerOutput2Normal" Margin="0,208,0,355" Height="147.75">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text=""/>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Label Content="Miner 2 Normal Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="30" Margin="0,178,0,0"/>
+                        <RichTextBox x:Name="rtbMinerOutput3Normal" Margin="0,386,0,177" Height="147.75">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text=""/>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Label Content="Miner 3 Normal Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="30" Margin="0,356,0,0"/>
+                        <RichTextBox x:Name="rtbMinerOutput4Normal" Margin="0,564,0,-1" Height="147.75">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text=""/>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Label Content="Miner 4 Normal Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="30" Margin="0,534,0,0"/>
+                        <Button x:Name="btnStartStopMiner1Normal" Content="Start Miner" HorizontalAlignment="Left" Margin="279,1,0,0" VerticalAlignment="Top" Width="127" Click="btnStartStopMiner1_Click"/>
+                        <Button x:Name="btnStartStopMiner2Normal" Content="Start Miner" HorizontalAlignment="Left" Margin="279,178,0,0" VerticalAlignment="Top" Width="127" Click="btnStartStopMiner2Normal_Click"/>
+                        <Button x:Name="btnStartStopMiner3Normal" Content="Start Miner" HorizontalAlignment="Left" Margin="279,356,0,0" VerticalAlignment="Top" Width="127" Click="btnStartStopMiner3Normal_Click"/>
+                        <Button x:Name="btnStartStopMiner4Normal" Content="Start Miner" HorizontalAlignment="Left" Margin="279,534,0,0" VerticalAlignment="Top" Width="127" Click="btnStartStopMiner4Normal_Click"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Custom Output" Margin="-2,-2,-2,0" BorderThickness="1,1,1,1" BorderBrush="#FFC8C8C8" Height="30" Width="120" FontSize="14">
+                    <TabItem.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFF0F0F0"/>
+                            <GradientStop Color="#FFC8C8C8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TabItem.Background>
+                    <Grid Background="#FF232323" Height="711" VerticalAlignment="Center">
+                        <RichTextBox x:Name="rtbMinerOutput1Custom" Margin="0,30,0,533" Height="147.75">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text=""/>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <RichTextBox x:Name="rtbMinerOutput2Custom" Margin="0,208,0,355" Height="147.75">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text=""/>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Label Content="Miner 2 Custom Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="30" Margin="0,178,0,0"/>
+                        <RichTextBox x:Name="rtbMinerOutput3Custom" Margin="0,386,0,177" Height="147.75">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text=""/>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Label Content="Miner 3 Custom Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="30" Margin="0,356,0,0"/>
+                        <RichTextBox x:Name="rtbMinerOutput4Custom" Margin="0,564,0,-1" Height="147.75">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text=""/>
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <Label Content="Miner 4 Custom Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="30" Margin="0,534,0,0"/>
+                        <Button x:Name="btnStartStopMiner1Custom" Content="Start Miner" HorizontalAlignment="Left" Margin="279,0,0,0" VerticalAlignment="Top" Width="127" Click="btnStartStopMiner1_Click"/>
+                        <Button x:Name="btnStartStopMiner2Custom" Content="Start Miner" HorizontalAlignment="Left" Margin="279,178,0,0" VerticalAlignment="Top" Width="127" Click="btnStartStopMiner2Normal_Click"/>
+                        <Button x:Name="btnStartStopMiner3Custom" Content="Start Miner" HorizontalAlignment="Left" Margin="279,356,0,0" VerticalAlignment="Top" Width="127" Click="btnStartStopMiner3Normal_Click"/>
+                        <Button x:Name="btnStartStopMiner4Custom" Content="Start Miner" HorizontalAlignment="Left" Margin="279,534,0,0" VerticalAlignment="Top" Width="127" Click="btnStartStopMiner4Normal_Click"/>
+                        <Label Content="Miner 1 Custom Output" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="30"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+        <RichTextBox x:Name="rtb1" HorizontalAlignment="Left" Height="398" Margin="349,352,0,0" VerticalAlignment="Top" Width="697" Visibility="Hidden">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </Grid>
+</Page>
